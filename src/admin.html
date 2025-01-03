@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>账号管理</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 引入网站图标 -->
+    <link rel="icon" href="../images/ebuy_icon.png" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="../images/ebuy_icon.png"
+      type="image/x-icon"
+    />
+    <!-- 引入Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="../bootstrap-4.6.2/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+
+    <title>后台管理</title>
+    <style></style>
+  </head>
+
+  <body>
+    <!-- 导航条 -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand text-primary" href="#">ebuy</a>
+        <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        >
+        <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+            <a class="nav-item nav-link" href="index.html"
+              >首页 <span class="sr-only">(current)</span></a
+            >
+            <li class="nav-item ">
+              <a class="nav-item nav-link" href="./more.html">关于ebuy</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-item nav-link" href="./carousel.html">商品主页</a>
+            <li class="nav-item ">
+              <a class="nav-item nav-link" href="./add.html">发布商品</a>
+            <li class="nav-item ">
+                <a class="nav-item nav-link" href="./pro_car.html">购物车</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-item nav-link" href="./pay_index.html">立即下单</a>
+            </li>
+           
+            <li class="nav-item ">
+                <a class="nav-item nav-link" href="./chat.html">客服支持</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-toggle="dropdown"
+                aria-expanded="false"
+              >
+                账户
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="./p_login.html">账户登录</a>
+                <a class="dropdown-item" href="./p_register.html">账户注册</a>
+                <a class="dropdown-item" href="./p_forgotPassword.html">重置密码</a>
+              </div>
+              </li>
+            <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-toggle="dropdown"
+              aria-expanded="false"
+            >
+              个人中心
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="./p_userhome.html">个人首页</a>
+              <a class="dropdown-item" href="./p_profile.html">个人资料</a>
+              <a class="dropdown-item" href="./p_orderhistory.html">订单历史</a>
+              <a class="dropdown-item" href="./p_wishlist.html">个人收藏</a>
+            </div>
+            </li>
+          </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input
+          class="form-control mr-sm-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          />
+          <button class="btn btn-outline my-2 my-sm-0" type="submit">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-search"
+            viewBox="0 0 16 16"
+          >
+            <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+            />
+          </svg>
+          </button>
+        </form>
+        </div>
+      </div>
+      </nav>
+    <!-- 表格开始 -->
+    <div class="container">
+      <div class="row">
+        <table class="table table-striped">
+          <button
+            type="button"
+            class="btn btn-outline-success btn-sm"
+            style="margin: 5px"
+          >
+            新建
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-primary btn-sm"
+            style="margin: 5px"
+          >
+            导入
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-warning btn-sm"
+            style="margin: 5px"
+          >
+            导出
+          </button>
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">名字</th>
+              <th scope="col">姓氏</th>
+              <th scope="col">@</th>
+              <th scope="col">操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+              <td>
+                <a class="btn btn-primary" href="#">编辑</a>
+                <a class="btn btn-danger" href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-trash3-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"
+                    />
+                  </svg>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+              <td>
+                <a class="btn btn-primary" href="#">编辑</a>
+                <a class="btn btn-danger" href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-trash3-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"
+                    />
+                  </svg>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+              <td>
+                <a class="btn btn-primary" href="#">编辑</a>
+                <a class="btn btn-danger" href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-trash3-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"
+                    />
+                  </svg>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+              <td>
+                <a class="btn btn-primary" href="#">编辑</a>
+                <a class="btn btn-danger" href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-trash3-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"
+                    />
+                  </svg>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">5</th>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+              <td>
+                <a class="btn btn-primary" href="#">编辑</a>
+                <a class="btn btn-danger" href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-trash3-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"
+                    />
+                  </svg>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">6</th>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+              <td>
+                <a class="btn btn-primary" href="#">编辑</a>
+                <a class="btn btn-danger" href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-trash3-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"
+                    />
+                  </svg>
+                </a>
+              </td>
+            </tr>
+
+            <tr>
+              <th scope="row">7</th>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+              <td>
+                <a class="btn btn-primary" href="#">编辑</a>
+                <a class="btn btn-danger" href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-trash3-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"
+                    />
+                  </svg>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">8</th>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+              <td>
+                <a class="btn btn-primary" href="#">编辑</a>
+                <a class="btn btn-danger" href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-trash3-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"
+                    />
+                  </svg>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <nav>
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link">上一页</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active" aria-current="page">
+              <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">5</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">下一页</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <!-- 表格结束 -->
+    <!-- 引入Bootstrap JS 和JQuery -->
+    <script src="../bootstrap-4.6.2/jquery/jquery-3.7.1.js"></script>
+    <script src="../bootstrap-4.6.2/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

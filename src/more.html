@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <title>关于ebuy</title>
+    <!-- 必须的 meta 标签 -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- 引入网站图标 -->
+    <link rel="icon" href="../images/ebuy_icon.png" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="../images/ebuy_icon.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../">
+    <!-- 引入Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+    <!-- 引入Animate.css -->
+    <head>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      />
+    </head>
+    <!-- 引入Bootstrap JS和依赖的JQuery、Popper.js -->
+    <script src="../bootstrap-4.6.2/jquery/jquery-3.7.1.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+      /* 为返回顶部按钮添加一些样式 */
+      #back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+        border: none;
+        outline: none;
+        background-color: #4c89af;
+        color: white;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 10px;
+        font-size: 18px;
+      }
+      /* 为图片鼠标悬停添加样式 */
+      .hover-zoom {
+        transition: transform 1s ease;
+        cursor: pointer;
+      }
+
+      .hover-zoom:hover {
+        transform: scale(1.1);
+      }
+      
+        /* 调整标题和段落的样式 */
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-bottom: 30px;
+        }
+
+        p {
+            text-indent: 2em; /* 首行缩进2个字符 */
+            line-height: 1.6; /* 行间距1.6倍 */
+            margin-bottom: 20px;
+        }
+    </style>
+  </head>
+    <!-- 导航条 -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand text-primary" href="#">ebuy</a>
+        <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        >
+        <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item ">
+          <a class="nav-item nav-link" href="index.html"
+            >首页 <span class="sr-only">(current)</span></a
+          >
+          <li class="nav-item ">
+            <a class="nav-item nav-link" href="./more.html">关于ebuy</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-item nav-link" href="./carousel.html">商品主页</a>
+          <li class="nav-item ">
+            <a class="nav-item nav-link" href="./add.html">发布商品</a>
+          <li class="nav-item ">
+              <a class="nav-item nav-link" href="./pro_car.html">购物车</a>
+          </li>
+          <li class="nav-item ">
+              <a class="nav-item nav-link" href="./pay_index.html">立即下单</a>
+          </li>
+         
+          <li class="nav-item ">
+              <a class="nav-item nav-link" href="./chat.html">客服支持</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-toggle="dropdown"
+              aria-expanded="false"
+            >
+              账户
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="./p_login.html">账户登录</a>
+              <a class="dropdown-item" href="./p_register.html">账户注册</a>
+              <a class="dropdown-item" href="./p_forgotPassword.html">重置密码</a>
+            </div>
+            </li>
+          <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-toggle="dropdown"
+            aria-expanded="false"
+          >
+            个人中心
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="./p_userhome.html">个人首页</a>
+            <a class="dropdown-item" href="./p_profile.html">个人资料</a>
+            <a class="dropdown-item" href="./p_orderhistory.html">订单历史</a>
+            <a class="dropdown-item" href="./p_wishlist.html">个人收藏</a>
+          </div>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input
+          class="form-control mr-sm-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          />
+          <button class="btn btn-outline my-2 my-sm-0" type="submit">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-search"
+            viewBox="0 0 16 16"
+          >
+            <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+            />
+          </svg>
+          </button>
+        </form>
+        </div>
+      </div>
+    </nav>
+   
+</head>
+
+<body class="bg-dark">
+    <div class="container">
+        <div class="text-center">
+            <h1 class="text-primary">ebuy</h1>
+            <h2 class="text-warning">开启校园购物新篇，畅享便捷生活乐章</h2>
+        </div>
+        <div class="text-light">
+        <p>校园生活，青春跃动，而购物需求亦如繁星点点。传统购物模式下，同学们或于烈日下奔赴校外商超，耗时费力；或困于校内小卖部有限的商品种类，难以满足多元渴望。此时，Ebuy 网站恰似一阵清风，为校园购物带来前所未有的畅快体验。</p>
+        <p>Ebuy 仿若一座琳琅满目的校园商品宝库。从助力学业攀登的各类书籍、文具，到慰藉疲惫身心的零食饮品；从提升生活品质的精致好物，到彰显个性风采的时尚潮品，无一不包。它精心遴选契合校园场景的商品，每一件都承载着对同学们需求的深刻洞察，让你告别选择匮乏与四处寻觅的困扰。</p>
+        <p>其配送服务堪称一绝。凭借精准的定位系统，下单瞬间即触发高效运转的配送链条。校内专属配送团队如校园精灵，迅速穿梭于校园小径，以最快速度将商品递至宿舍门口或教学楼旁。哪怕是课间十分钟的紧急需求，Ebuy 也能使命必达，让等待化为瞬间的惊喜。</p>
+        <p>但 Ebuy 又不止于购物，它编织起一张充满活力的校园社交大网。在这里，购物心得与好物推荐自由流淌，同学们以物会友，交流的火花在分享中绚烂绽放。团购活动热火朝天，大家携手拼单，共享实惠与欢乐，让购物成为增进情谊的纽带。</p>
+        <p>安全无忧的购物环境更是 Ebuy 的坚守。严格的商品审核机制，为每一件商品的品质保驾护航；贴心周到的售后服务团队，随时倾听你的诉求，快速响应，确保任何问题都能迎刃而解。</p>
+        <p>Ebuy 网站，正以创新之姿重塑校园购物生态。它是便捷的化身，是社交的新宠，是品质与服务的忠诚卫士。亲爱的同学们，踏入 Ebuy 的世界，让校园购物成为青春岁月里一段美妙而难忘的旋律，轻松奏响便捷、愉悦与共享的生活乐章。</p>
+      </div>
+      </div>
+
+    <!-- 引入Bootstrap JS和依赖的JQuery、Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+
+ <!-- 返回顶部按钮 -->
+ <button onclick="topFunction()" id="back-to-top" title="返回顶部">
+  ↑返回顶部
+</button>
+<!-- 页脚开始 -->
+<footer class="bg-white text-default mt-5 p-4 border-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h5>关于我们</h5>
+        <p>Ebuy 校园线上购物网站应需而生，为校园生活精心打造一站式便捷购物解决方案，让购物随心随性，轻松愉悦。
+        </p>
+      </div>
+      <div class="col-md-4">
+        <h5>快速链接</h5>
+        <ul class="list-unstyled">
+          <li><a href="./index.html" class="text-secondary">首页</a></li>
+          <li><a href="#" class="text-secondary">服务</a></li>
+          <li><a href="./carousel.html" class="text-secondary">产品</a></li>
+          <li><a href="./more.html" class="text-secondary">关于我们</a></li>
+          <li class="nav-item dropdown text-secondary">
+            <a
+              class="nav-item dropdown-toggle"
+              href="#"
+              role="button"
+              data-toggle="dropdown"
+              aria-expanded="false"
+            >
+              ebuy 后台
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="./admin.html">账户管理</a>
+              <a class="dropdown-item" href="./in_statisc.html">数据管理</a>
+              
+            </div>
+            </li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5>联系信息</h5>
+        <p>地址：海新区宏达街23号, 天津, 中国</p>
+        <p>电话：191-7411-1293</p>
+        <p>Email：williamlei7574@gmail.com</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center">
+        <p>版权所有 &copy; 2025 ebuy. 保留所有权利。</p>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- 页脚结束 -->
+<!-- 返回顶部的JavaScript -->
+<script>
+  // 当用户滚动到页面底部以下500px时，显示返回顶部按钮
+  window.onscroll = function () {
+    scrollFunction();
+  };
+  function scrollFunction() {
+    if (
+      document.body.scrollTop > 500 ||
+      document.documentElement.scrollTop > 500
+    ) {
+      document.getElementById('back-to-top').style.display = 'block';
+    } else {
+      document.getElementById('back-to-top').style.display = 'none';
+    }
+  }
+  // 当点击返回顶部按钮时，平滑滚动到页面顶部
+  function topFunction() {
+    document.body.scrollTop = 0; // 对于Chrome、Safari和Opera
+    document.documentElement.scrollTop = 0; // 对于Firefox、IE和Edge
+  }
+</script>
+</body>
+</html>

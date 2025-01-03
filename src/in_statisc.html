@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ebuy数据统计与分析</title>
+    <!-- 引入 Bootstrap 4.6.2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <!-- 引入 Chart.js 库用于数据可视化 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center my-4">ebuy网站数据统计与分析</h1>
+
+        <!-- 销售数据部分 -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h3>销售数据</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <p><strong>今日销售额：</strong> <span id="daily-sales"></span></p>
+                    </div>
+                    <div class="col-md-4">
+                        <p><strong>本周销售额：</strong> <span id="weekly-sales"></span></p>
+                    </div>
+                    <div class="col-md-4">
+                        <p><strong>本月销售额：</strong> <span id="monthly-sales"></span></p>
+                    </div>
+                </div>
+                <h4 class="mt-4">热销商品排名</h4>
+                <ul id="top-selling-products"></ul>
+            </div>
+        </div>
+
+        <!-- 用户数据部分 -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h3>用户数据</h3>
+            </div>
+            <div class="card-body">
+                <p><strong>注册用户数：</strong> <span id="registered-users"></span></p>
+                <p><strong>活跃用户数：</strong> <span id="active-users"></span></p>
+            </div>
+        </div>
+
+        <!-- 流量数据部分 -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h3>流量数据</h3>
+            </div>
+            <div class="card-body">
+                <p><strong>网站访问量：</strong> <span id="visits"></span></p>
+                <p><strong>页面浏览量（PV）：</strong> <span id="page-views"></span></p>
+                <p><strong>独立访客数（UV）：</strong> <span id="unique-visitors"></span></p>
+            </div>
+        </div>
+
+        <!-- 数据可视化部分 -->
+        <div class="card">
+            <div class="card-header">
+                <h3>数据可视化展示</h3>
+            </div>
+            <div class="card-body">
+                <canvas id="sales-chart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 模拟数据
+        const dailySales = 1500;
+        const weeklySales = 8000;
+        const monthlySales = 30000;
+        const topSellingProducts = [
+            { name: '商品 A', sales: 100 },
+            { name: '商品 B', sales: 80 },
+            { name: '商品 C', sales: 60 }
+        ];
+        const registeredUsers = 500;
+        const activeUsers = 200;
+        const visits = 1000;
+        const pageViews = 5000;
+        const uniqueVisitors = 800;
+
+        // 填充销售数据
+        document.getElementById('daily-sales').textContent = `$${dailySales}`;
+        document.getElementById('weekly-sales').textContent = `$${weeklySales}`;
+        document.getElementById('monthly-sales').textContent = `$${monthlySales}`;
+
+        // 填充热销商品排名
+        const topSellingProductsList = document.getElementById('top-selling-products');
+        topSellingProducts.forEach((product, index) => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `${index + 1}. ${product.name} - 销售额: $${product.sales}`;
+            topSellingProductsList.appendChild(listItem);
+        });
+
+        // 填充用户数据
+        document.getElementById('registered-users').textContent = registeredUsers;
+        document.getElementById('active-users').textContent = activeUsers;
+
+        // 填充流量数据
+        document.getElementById('visits').textContent = visits;
+        document.getElementById('page-views').textContent = pageViews;
+        document.getElementById('unique-visitors').textContent = uniqueVisitors;
+
+        // 数据可视化 - 销售数据图表
+        const salesChartCtx = document.getElementById('sales-chart').getContext('2d');
+        const salesChart = new Chart(salesChartCtx, {
+            type: 'bar',
+            data: {
+                labels: ['今日', '本周', '本月'],
+                datasets: [{
+                    label: '销售额',
+                    data: [dailySales, weeklySales, monthlySales],
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+    <!-- 引入 Bootstrap 4.6.2 JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</body>
+
+</html>

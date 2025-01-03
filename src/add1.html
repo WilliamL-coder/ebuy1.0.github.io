@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>发布商品</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品管理系统</title>
+    <!-- 引入 Bootstrap 4.6.2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <style>
+        /* 自定义样式可根据需求进一步调整 */
+        /* 商品图片最大宽度 */
+      .product img {
+            max-width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- 登录状态 -->
+        <div class="row justify-content-center my-3">
+            <div id="login-status" class="text-center">
+                <span id="user-status" class="mr-2">未登录</span>
+                <button id="login-button" class="btn btn-primary mr-2">登录</button>
+                <button id="logout-button" class="btn btn-secondary hidden">退出登录</button>
+            </div>
+        </div>
+
+        <!-- 商品列表 -->
+        <div class="row">
+            <div class="col">
+                <h2 class="mb-3">商品列表</h2>
+                <div id="products"></div>
+            </div>
+        </div>
+
+        <!-- 发布商品表单 -->
+        <div class="row">
+            <div class="col">
+                <div class="form-container hidden" id="product-form-container">
+                    <h2 class="mb-3">发布商品</h2>
+                    <form id="product-form" novalidate>
+                        <div class="form-group">
+                            <label for="product-name">商品名称</label>
+                            <input type="text" id="product-name" placeholder="商品名称" required class="form-control">
+                            <div class="invalid-feedback">请输入商品名称</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-description">商品描述</label>
+                            <textarea id="product-description" placeholder="商品描述" required class="form-control"></textarea>
+                            <div class="invalid-feedback">请输入商品描述</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-price">商品价格</label>
+                            <input type="number" id="product-price" placeholder="商品价格" required class="form-control">
+                            <div class="invalid-feedback">请输入商品价格</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-image">商品图片</label>
+                            <input type="file" id="product-image" accept="image/*" class="form-control-file">
+                        </div>
+                        <button type="submit" class="btn btn-primary">发布商品</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script>
+        // 模拟用户登录状态
+        let isLoggedIn = false;
+
+        // 获取 DOM 元素
+        const loginStatus = document.getElementById('login-status');
+        const userStatus = document.getElementById('user-status');
+        const loginButton = document.getElementById('login-button');
+        const logoutButton = document.getElementById('logout-button');
+        const productFormContainer = document.getElementById('product-form-container');
+        const productForm = document.getElementById('product-form');
+        const productsContainer = document.getElementById('products');
+
+        // 初始化商品数据（存储在 localStorage 中）
+        const PRODUCTS_KEY = 'products';
+        const getProducts = () => JSON.parse(localStorage.getItem(PRODUCTS_KEY)) || [];
+        const setProducts = (products) => localStorage.setItem(PRODUCTS_KEY, JSON.stringify(products));
+
+        // 更新商品列表 UI
+        function renderProducts() {
+            const products = getProducts();
+            productsContainer.innerHTML = '';
+            products.forEach((product, index) => {
+                const productDiv = document.createElement('div');
+                productDiv.className = 'card mb-3';
+                productDiv.innerHTML = `
+                    <div class="card-body">
+                        <h3 class="card-title">${product.name}</h3>
+                        <p class="card-text">${product.description}</p>
+                        <p class="card-text">价格: ¥${product.price}</p>
+                        ${product.image? `<img src="${product.image}" alt="${product.name}" class="img-fluid mb-2">` : ''}
+                        ${isLoggedIn? `
+                            <button onclick="editProduct(${index})" class="btn btn-primary btn-sm mr-2">编辑</button>
+                            <button onclick="deleteProduct(${index})" class="btn btn-danger btn-sm">删除</button>
+                        ` : ''}
+                    </div>
+                `;
+                productsContainer.appendChild(productDiv);
+            });
+        }
+
+        // 登录与退出登录
+        loginButton.addEventListener('click', () => {
+            isLoggedIn = true;
+            updateLoginUI();
+        });
+
+        logoutButton.addEventListener('click', () => {
+            isLoggedIn = false;
+            updateLoginUI();
+        });
+
+        // 更新登录状态 UI
+        function updateLoginUI() {
+            if (isLoggedIn) {
+                userStatus.textContent = '已登录';
+                loginButton.classList.add('hidden');
+                logoutButton.classList.remove('hidden');
+                productFormContainer.classList.remove('hidden');
+            } else {
+                userStatus.textContent = '未登录';
+                loginButton.classList.remove('hidden');
+                logoutButton.classList.add('hidden');
+                productFormContainer.classList.add('hidden');
+            }
+            renderProducts();
+        }
+
+        // 发布商品
+        productForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('product-name').value;
+            const description = document.getElementById('product-description').value;
+            const price = document.getElementById('product-price').value;
+            const imageInput = document.getElementById('product-image');
+            const image = imageInput.files[0]? URL.createObjectURL(imageInput.files[0]) : null;
+
+            const products = getProducts();
+            products.push({ name, description, price, image });
+            setProducts(products);
+            renderProducts();
+            productForm.reset();
+        });
+
+        // 编辑商品
+        window.editProduct = (index) => {
+            const products = getProducts();
+            const product = products[index];
+            const name = prompt('修改商品名称:', product.name);
+            const description = prompt('修改商品描述:', product.description);
+            const price = prompt('修改商品价格:', product.price);
+
+            if (name && description && price) {
+                products[index] = {...product, name, description, price };
+                setProducts(products);
+                renderProducts();
+            }
+        };
+
+        // 删除商品
+        window.deleteProduct = (index) => {
+            const products = getProducts();
+            products.splice(index, 1);
+            setProducts(products);
+            renderProducts();
+        };
+
+        // 初始化页面
+        updateLoginUI();
+    </script>
+</body>
+
+</html>

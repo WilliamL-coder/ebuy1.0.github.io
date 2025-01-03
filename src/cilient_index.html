@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电商网站 - 用户账户</title>
+    <link rel="stylesheet" href="../css/client_style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- 登录和注册页面 -->
+        <div id="auth">
+            <h2>登录</h2>
+            <form id="loginForm">
+                <label for="email">邮箱或手机号</label>
+                <input type="text" id="email" placeholder="输入邮箱或手机号" required>
+                <label for="password">密码</label>
+                <input type="password" id="password" placeholder="输入密码" required>
+                <button type="submit">登录</button>
+            </form>
+            <a href="#" id="forgotPasswordLink">忘记密码？</a>
+            <a href="#" id="registerLink">没有账户？注册</a>
+        </div>
+
+        <!-- 注册页面 -->
+        <div id="register" >
+            <h2>注册</h2>
+            <form id="registerForm">
+                <label for="regEmail">邮箱</label>
+                <input type="email" id="regEmail" placeholder="输入邮箱" required>
+                <label for="regPassword">密码</label>
+                <input type="password" id="regPassword" placeholder="输入密码" required>
+                <label for="regPhone">手机号</label>
+                <input type="tel" id="regPhone" placeholder="输入手机号" required>
+                <button type="submit">注册</button>
+            </form>
+            <a href="#" id="loginLink">已有账户？登录</a>
+        </div>
+
+        <!-- 忘记密码页面 -->
+        <div id="forgotPassword" >
+            <h2>重置密码</h2>
+            <form id="resetPasswordForm">
+                <label for="resetEmail">邮箱</label>
+                <input type="email" id="resetEmail" placeholder="输入邮箱" required>
+                <button type="submit">发送重置链接</button>
+            </form>
+            <a href="#" id="backToLoginLink">返回登录</a>
+        </div>
+
+        <!-- 用户主页 -->
+        <div id="userHome" style="display:none;">
+            <h2>用户账户</h2>
+            <button id="viewProfileBtn">查看个人资料</button>
+            <button id="orderHistoryBtn">查看订单历史</button>
+            <button id="wishlistBtn">查看收藏夹</button>
+            <button id="logoutBtn">登出</button>
+        </div>
+
+        <!-- 个人资料 -->
+        <div id="profile" >
+            <h2>个人资料</h2>
+            <form id="profileForm">
+                <label for="nickname">昵称</label>
+                <input type="text" id="nickname" placeholder="输入昵称">
+                <label for="avatar">头像</label>
+                <input type="file" id="avatar">
+                <label for="address">地址</label>
+                <textarea id="address" placeholder="输入地址"></textarea>
+                <button type="submit">保存修改</button>
+            </form>
+            <a href="#" id="backToUserHomeLink">返回主页</a>
+        </div>
+
+        <!-- 订单历史 -->
+        <div id="orderHistory" >
+            <h2>订单历史</h2>
+            <ul id="orderList">
+                <li>订单1 - 状态: 已完成</li>
+                <li>订单2 - 状态: 待发货</li>
+            </ul>
+            <a href="#" id="backToUserHomeFromOrders">返回主页</a>
+        </div>
+
+        <!-- 收藏夹 -->
+        <div id="wishlist" >
+            <h2>收藏夹</h2>
+            <ul id="wishlistItems">
+                <li>商品A</li>
+                <li>商品B</li>
+            </ul>
+            <a href="#" id="backToUserHomeFromWishlist">返回主页</a>
+        </div>
+    </div>
+
+    <script src="../js/client_script.js"></script>
+</body>
+</html>

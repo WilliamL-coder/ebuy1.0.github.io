@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网购商品管理</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>网购商品管理</h1>
+        <button id="loginButton" onclick="toggleLogin()">登录</button>
+        <button id="logoutButton" onclick="logout()" style="display:none;">注销</button>
+    </header>
+
+    <section id="browseSection">
+        <h2>商品列表</h2>
+        <div id="productList"></div>
+    </section>
+
+    <section id="createSection" style="display:none;">
+        <h2>发布商品</h2>
+        <form id="createForm">
+            <label for="productName">商品名称:</label>
+            <input type="text" id="productName" required><br>
+            <label for="productDescription">商品描述:</label>
+            <textarea id="productDescription" required></textarea><br>
+            <label for="productPrice">价格:</label>
+            <input type="number" step="0.01" id="productPrice" required><br>
+            <label for="productImage">商品图片链接:</label>
+            <input type="text" id="productImage"><br>
+            <input type="submit" value="发布">
+        </form>
+    </section>
+
+    <div id="productDetailModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2 id="detailProductName"></h2>
+            <p id="detailProductDescription"></p>
+            <p id="detailProductPrice"></p>
+            <img id="detailProductImage" style="max-width:300px;">
+            <button id="editButton" onclick="openEditModal()" style="display:none;">编辑</button>
+            <button id="deleteButton" onclick="deleteProduct()" style="display:none;">删除</button>
+        </div>
+    </div>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeEditModal">&times;</span>
+            <h2>编辑商品</h2>
+            <form id="editForm">
+                <input type="hidden" id="editProductId">
+                <label for="editProductName">商品名称:</label>
+                <input type="text" id="editProductName" required><br>
+                <label for="editProductDescription">商品描述:</label>
+                <textarea id="editProductDescription" required></textarea><br>
+                <label for="editProductPrice">价格:</label>
+                <input type="number" step="0.01" id="editProductPrice" required><br>
+                <label for="editProductImage">商品图片链接:</label>
+                <input type="text" id="editProductImage"><br>
+                <input type="submit" value="保存修改">
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

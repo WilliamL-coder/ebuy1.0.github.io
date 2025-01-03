@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>用户账户</title>
+    <!-- 引入Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <!-- 自定义样式 -->
+    <style>
+        #userHome {
+            max-width: 400px;
+            margin: 0 auto;
+            margin-top: 50px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #f8f9fa;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        button {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="userHome" class="bg-white">
+        <h2>用户账户</h2>
+        <button id="viewProfileBtn" class="btn btn-primary btn-block">查看个人资料</button>
+        <button id="orderHistoryBtn" class="btn btn-primary btn-block">查看订单历史</button>
+        <button id="wishlistBtn" class="btn btn-primary btn-block">查看收藏夹</button>
+        <button id="logoutBtn" class="btn btn-danger btn-block">登出</button>
+
+        <!-- 模态框：查看个人资料 -->
+        <div class="modal fade" id="profileModal" tabindex="-1" role="modal" aria-labelledby="profileModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="profileModalLabel">个人资料</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- 这里可以动态加载个人资料内容，暂时用示例文本代替 -->
+                        <p>昵称: 示例昵称</p>
+                        <p>邮箱: example@example.com</p>
+                        <p>地址: 示例地址</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 模态框：查看订单历史 -->
+        <div class="modal fade" id="orderHistoryModal" tabindex="-1" role="modal" aria-labelledby="orderHistoryModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="orderHistoryModalLabel">订单历史</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- 这里可以动态加载订单历史内容，暂时用示例文本代替 -->
+                        <p>订单1 - 状态: 已完成</p>
+                        <p>订单2 - 状态: 待发货</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 模态框：查看收藏夹 -->
+        <div class="modal fade" id="wishlistModal" tabindex="-1" role="modal" aria-labelledby="wishlistModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="wishlistModalLabel">收藏夹</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- 这里可以动态加载收藏夹内容，暂时用示例文本代替 -->
+                        <p>收藏项1</p>
+                        <p>收藏项2</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入相关脚本 -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 显示个人资料模态框
+            $('#viewProfileBtn').click(function () {
+                $('#profileModal').modal('show');
+            });
+
+            // 显示订单历史模态框
+            $('#orderHistoryBtn').click(function () {
+                $('#orderHistoryModal').modal('show');
+            });
+
+            // 显示收藏夹模态框
+            $('#wishlistBtn').click(function () {
+                $('#wishlistModal').modal('show');
+            });
+
+            // 登出功能，这里简单模拟，实际应处理用户会话等
+            $('#logoutBtn').click(function () {
+                if (confirm('确定要登出吗？')) {
+                    alert('已登出');
+                    // 实际应用中，这里应该包含清除用户会话、跳转到登录页面等逻辑
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
